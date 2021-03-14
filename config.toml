@@ -1,0 +1,4 @@
+baseURL = "http://outdabox.ml"
+languageCode = "en-us"
+title = "Out of the box"
+theme = "outdaboxTheme"
