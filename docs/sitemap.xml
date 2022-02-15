@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>http://outdabox.ml/categories/</loc></url><url><loc>http://outdabox.ml/</loc></url><url><loc>http://outdabox.ml/tags/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://outdabox.ml/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/contacts/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/intro/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/past/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/what/</loc>
+  </url>
+  
+  <url>
+    <loc>http://outdabox.ml/tags/</loc>
+  </url>
+  
+</urlset>

@@ -1,8 +1,352 @@
-<!doctype html><html><head><meta name=generator content="Hugo 0.80.0"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet type=text/css href=/css/bootstrap.min.css><link rel=stylesheet type=text/css href=/css/style.css><title>Out of the box</title></head><body><div id=content><div class="fitVpW fitVpH position-relative"><div id=fg>coming soon.</div><div id=bg class="position-absolute top-50 start-50 translate-middle behindAll fitVpW fitVpH"></div></div></div><p class="footer fixed-bottom" text-center>Copyright (c) 2021 Enrico Viola</p><script src=/js/feather.min.js></script><script src=/js/three/r126/three.min.js></script><script src=/js/three/r126/Projector.js></script><script src=/js/three/r126/SVGRenderer.js></script><script>let divBg=document.getElementById("bg");feather.replace();let renderW=window.innerWidth;let renderH=window.innerHeight;let boxBottom;let boxTop;let boxLx;let boxRx;let matBox;const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(75,renderW/renderH,0.1,1000);const renderer=new THREE.SVGRenderer();renderer.setClearColor(0x282a36);function makeBoxSideVtx(_ctr,_sz,_horOff){let sz2=_sz/2;let x0=_ctr.x+_horOff;let x1=x0+_horOff;let y0=_ctr.y-sz2;let y1=_ctr.y+sz2;let y2=y1+_sz/3;let z0=_ctr.z+sz2;let z1=_ctr.z-sz2;let vtx=[];vtx.push(new THREE.Vector3(x0,y0,z0));vtx.push(new THREE.Vector3(x0,y1,z0));vtx.push(new THREE.Vector3(x1,y2,z0));vtx.push(new THREE.Vector3(x1,y2,z1));vtx.push(new THREE.Vector3(x0,y1,z1));vtx.push(new THREE.Vector3(x0,y0,z1));return vtx;}
-function makeHorSquareVtx(_ctr,_sz){let sz2=_sz/2;let vtx=[];vtx.push(new THREE.Vector3(_ctr.x-sz2,_ctr.y,_ctr.z-sz2));vtx.push(new THREE.Vector3(_ctr.x+sz2,_ctr.y,_ctr.z-sz2));vtx.push(new THREE.Vector3(_ctr.x+sz2,_ctr.y,_ctr.z+sz2));vtx.push(new THREE.Vector3(_ctr.x-sz2,_ctr.y,_ctr.z+sz2));vtx.push(new THREE.Vector3(_ctr.x-sz2,_ctr.y,_ctr.z-sz2));return vtx;}
-function makeBoxBase(_ctr,_sz,_mat){const vtx=makeHorSquareVtx(_ctr,_sz,_mat);const geom=new THREE.BufferGeometry().setFromPoints(vtx);return new THREE.Line(geom,_mat);}
-function makeBoxSide(_ctr,_sz,_horOff,_mat){const vtx=makeBoxSideVtx(_ctr,_sz,_horOff,_mat);const geom=new THREE.BufferGeometry().setFromPoints(vtx);;return new THREE.Line(geom,_mat);}
-function init3d(){renderer.setSize(renderW,renderH);divBg.appendChild(renderer.domElement);matBox=new THREE.LineBasicMaterial({color:0xbd93f9,linewidth:5,});const boxCtr=new THREE.Vector3(0,-1.5,0);const boxSz=1;boxBottom=makeBoxBase(new THREE.Vector3(boxCtr.x,boxCtr.y-boxSz/2,boxCtr.z),boxSz,matBox);boxTop=makeBoxBase(new THREE.Vector3(boxCtr.x,boxCtr.y+boxSz/2,boxCtr.z),boxSz,matBox)
-boxLx=makeBoxSide(boxCtr,boxSz,-boxSz/2,matBox);boxRx=makeBoxSide(boxCtr,boxSz,boxSz/2,matBox);scene.add(boxBottom);scene.add(boxTop);scene.add(boxLx);scene.add(boxRx);camera.position.z=5;}
-function onWindowResize(){renderW=window.innerWidth;renderH=window.innerHeight;camera.aspect=renderW/renderH;camera.updateProjectionMatrix();renderer.setSize(renderW,renderH);}
-const animate=function(){requestAnimationFrame(animate);boxRx.rotation.y+=0.01;boxLx.rotation.y+=0.01;boxTop.rotation.y+=0.01;boxBottom.rotation.y+=0.01;renderer.render(scene,camera);};window.addEventListener('resize',onWindowResize);init3d();animate();</script></body></html>
+<!DOCTYPE html>
+<html><head>
+	<meta name="generator" content="Hugo 0.80.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    
+    <title>Out of the box</title>
+</head><body><div id="content">
+<div class="fitVpW fitVpH position-relative">
+    <div id="fg" class="fitVpW">
+        <div class="row">
+            <div class="col centerText mx-auto">
+                
+                
+                    <div id=contacts class=d-none>
+                        
+                        <p>I&rsquo;m based in Zurich and I work remotely; the easiest way to get in touch is sending me an email:<br>
+<a href="mailto:naus3a@gmail.com">naus3a@gmail.com</a></p>
+
+                    </div>
+                
+                    <div id=intro class=d-block>
+                        
+                        <p><strong>Out of the Box</strong> is a boutique software house.<br>
+It is led by Enrico Viola, which is me.<br>
+I am a <strong>creative technologist</strong>.<br>
+Which means I can <strong>code</strong>, <strong>design</strong> and figure out the best way to make any tech tell its <strong>story</strong>.</p>
+
+                    </div>
+                
+                    <div id=past class=d-none>
+                        
+                        <p>Most of my recent projects involve some form of NDA preventing me from showing them here, but you can still have a look at some of my past work here: <a href="http://naus3a.ml">http://naus3a.ml</a></p>
+
+                    </div>
+                
+                    <div id=what class=d-none>
+                        
+                        <p>I&rsquo;m an <strong>emerging tech specialist</strong>, who spent the last 15 years designing and developing award winning interactive installations, live shows, academic and industrial prototypes.<br>
+My areas of expertise include <strong>graphic computing</strong>, <strong>computer vision</strong>, <strong>robotics</strong>, <strong>XR</strong>.</p>
+
+                    </div>
+                
+<div class="row">
+    <div class="col-md-auto d-none menuIntro">
+        <a href="#" id="btnIntro">intro</a>
+    </div>
+    <div class="col-md-auto d-none menuIntro">
+        |
+    </div>
+    <div class="col-md-auto d-block menuWhat">
+        <a href="#" id="btnWhat">what I do</a>
+    </div>
+    <div class="col-md-auto d-block menuWhat">
+        |
+    </div>
+    <div class="col-md-auto d-block menuContacts">
+        <a href="#" id="btnContacts">how to get in touch</a>
+    </div>
+    <div class="col-md-auto d-block menuContacts">
+        |
+    </div>
+    <div class="col-md-auto d-block menuPast">
+        <a href="#" id="btnPast">stuff I did</a>
+    </div>
+</div>
+</div></div>
+        </div>
+    </div>
+    <div id="bg" class="position-absolute top-50 start-50 translate-middle behindAll fitVpW fitVpH"></div>
+</div>
+
+        </div><div class="footer fixed-bottom"><div>
+    <a href="mailto:naus3a@gmail.com" target="new"><img src="/img/mail.svg"></a>
+    <a href="https://github.com/naus3a" target="new"><img src="/img/github.svg"></a>
+    <a href="https://twitter.com/Naus3a" target="new"><img src="/img/twitter.svg"></a>
+    <a href="https://www.linkedin.com/in/violaenrico/" target="new"><img src="/img/linkedin.svg"></a>
+</div>
+<p text-center>Copyright (c) 2022 Enrico Viola</p>
+</div><script src="/js/feather.min.js"></script>
+<script src="/js/three/r126/three.min.js"></script>
+<script src="/js/three/r126/Projector.js"></script>
+<script src="/js/three/r126/SVGRenderer.js"></script>
+
+
+
+<script>
+    
+    
+    
+    let divBg = document.getElementById("bg");
+    let divFg = document.getElementById("fg");
+    let nxtBox;
+
+    feather.replace();
+    
+    
+    
+    
+
+    let boxes = {
+        
+            "contacts": {
+                "div": document.getElementById("contacts"),
+                "btn": document.getElementById("btnContacts"),
+                "menu": document.getElementsByClassName("menuContacts")
+            },
+        
+            "intro": {
+                "div": document.getElementById("intro"),
+                "btn": document.getElementById("btnIntro"),
+                "menu": document.getElementsByClassName("menuIntro")
+            },
+        
+            "past": {
+                "div": document.getElementById("past"),
+                "btn": document.getElementById("btnPast"),
+                "menu": document.getElementsByClassName("menuPast")
+            },
+        
+            "what": {
+                "div": document.getElementById("what"),
+                "btn": document.getElementById("btnWhat"),
+                "menu": document.getElementsByClassName("menuWhat")
+            },
+        
+    };
+
+    function swapClass(elem, removeMe, addMe){
+        elem.classList.remove(removeMe);
+        elem.classList.add(addMe);
+    }
+
+    function hideElem(elem){
+        swapClass(elem, "d-block", "d-none");
+    }
+
+    function showElem(elem){
+        swapClass(elem, "d-none", "d-block");
+    }
+
+    function elemsDo(elems, func){
+        for(let i=0;i<elems.length;i++){
+            func(elems[i]);
+        }
+    }
+
+    function showElems(elems){
+        elemsDo(elems, showElem);
+    }
+
+    function hideElems(elems){
+        elemsDo(elems, hideElem);
+    }
+
+    function handleMenuClick(_box){
+        nxtBox = _box;
+        animFgExitBottom();
+    }
+
+    function showBox(_box){
+        if(_box === undefined)return;
+        for(let box in boxes){
+            if(box === _box){
+                showElem(boxes[box].div);
+                hideElems(boxes[box].menu);
+            }else{
+                hideElem(boxes[box].div);
+                showElems(boxes[box].menu);
+            }
+        }
+    }
+
+    function addMenuListeners(){
+        for(let box in boxes){
+            boxes[box].btn.addEventListener("click", function(){
+                handleMenuClick(box);
+            });
+        }
+    }
+
+    addMenuListeners();
+
+    
+    
+    
+
+    function addAnimationEndListener(_elem, _func){
+        _elem.addEventListener("webkitAnimationEnd", _func, false);
+        _elem.addEventListener("animationend", _func, false);
+        _elem.addEventListener("oanimationend", _func, false);
+    }
+
+    function removeAnimationEndListener(_elem, _func){
+        _elem.removeEventListener("webkitAnimationEnd", _func);
+        _elem.removeEventListener("animationend", _func);
+        _elem.removeEventListener("oanimationend", _func);
+    }
+
+    function animateFg(_animName, _endCallback){
+        const fgAnimArgs = "0.5s";
+        divFg.style.animation = _animName+" "+fgAnimArgs;
+        addAnimationEndListener(divFg, _endCallback);
+    }
+
+    function animFgEnter(){
+        animateFg("enterFromTop", handleFgEntered);
+    }
+
+    function animFgExitBottom(){
+        animateFg("exitThruBottom", handleFgExited);
+    }
+
+    function handleFgEntered(){
+        removeAnimationEndListener(divFg, handleFgEntered);
+        
+    }
+
+    function handleFgExited(){
+        showBox(nxtBox);
+        removeAnimationEndListener(divFg, handleFgExited);
+        animFgEnter();
+    }
+
+    
+    
+    
+    
+    let renderW = window.innerWidth;
+    let renderH = window.innerHeight;
+    let colBg = parseInt("0x282a36");
+    let colLine = parseInt("0xbd93f9");
+    let boxBottom;
+    let boxTop;
+    let boxLx;
+    let boxRx;
+    let matBox;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera( 75, renderW / renderH, 0.1, 1000 );
+    const renderer = new THREE.SVGRenderer();
+    renderer.setClearColor(colBg);
+    
+    function makeBoxSideVtx(_ctr, _sz, _horOff){
+        
+        
+        
+        
+        
+        
+        
+
+        let sz2 = _sz/2;
+        let x0 = _ctr.x + _horOff;
+        let x1 = x0 + _horOff;
+        let y0 = _ctr.y - sz2;
+        let y1 = _ctr.y + sz2;
+        let y2 = y1 + _sz/3;
+        let z0 = _ctr.z + sz2;
+        let z1 = _ctr.z - sz2;
+        let vtx = [];
+        
+        vtx.push(new THREE.Vector3(x0, y0, z0));
+        vtx.push(new THREE.Vector3(x0, y1, z0));
+        vtx.push(new THREE.Vector3(x1, y2, z0));
+        vtx.push(new THREE.Vector3(x1, y2, z1));
+        vtx.push(new THREE.Vector3(x0, y1, z1));
+        vtx.push(new THREE.Vector3(x0, y0, z1));
+
+        return vtx;
+    }
+
+    function makeHorSquareVtx(_ctr, _sz){
+        let sz2 = _sz/2;
+        let vtx = [];
+        
+        
+        
+        
+
+        vtx.push(new THREE.Vector3(_ctr.x - sz2, _ctr.y, _ctr.z - sz2));
+        vtx.push(new THREE.Vector3(_ctr.x + sz2, _ctr.y, _ctr.z - sz2));
+        vtx.push(new THREE.Vector3(_ctr.x + sz2, _ctr.y, _ctr.z + sz2));
+        vtx.push(new THREE.Vector3(_ctr.x - sz2, _ctr.y, _ctr.z + sz2));
+        vtx.push(new THREE.Vector3(_ctr.x - sz2, _ctr.y, _ctr.z - sz2));
+
+        return vtx;
+    }
+
+    function makeBoxBase(_ctr, _sz, _mat){
+        const vtx = makeHorSquareVtx(_ctr, _sz, _mat);
+        const geom = new THREE.BufferGeometry().setFromPoints(vtx);
+        return new THREE.Line(geom, _mat);
+    }
+
+    function makeBoxSide(_ctr, _sz, _horOff, _mat){
+        const vtx = makeBoxSideVtx(_ctr, _sz, _horOff, _mat);
+        const geom = new THREE.BufferGeometry().setFromPoints(vtx);;
+        return new THREE.Line(geom, _mat);
+    }
+
+    function init3d(){
+        renderer.setSize( renderW, renderH );
+	    divBg.appendChild( renderer.domElement );
+
+        matBox = new THREE.LineBasicMaterial( { 
+            color: colLine,
+            linewidth: 5,
+        } );
+
+        const boxCtr = new THREE.Vector3(0,-1.5,0);
+        const boxSz = 1;
+        
+        boxBottom = makeBoxBase(new THREE.Vector3(boxCtr.x, boxCtr.y-boxSz/2, boxCtr.z), boxSz, matBox);
+        boxTop = makeBoxBase(new THREE.Vector3(boxCtr.x, boxCtr.y+boxSz/2, boxCtr.z), boxSz, matBox)
+        boxLx = makeBoxSide(boxCtr, boxSz, -boxSz/2, matBox);
+        boxRx = makeBoxSide(boxCtr, boxSz, boxSz/2, matBox);
+        
+        scene.add(boxBottom);
+        scene.add(boxTop);
+        scene.add(boxLx);
+        scene.add(boxRx);
+
+        camera.position.z = 5;
+    }
+
+    function onWindowResize(){
+        renderW = window.innerWidth;
+        renderH = window.innerHeight;
+        camera.aspect = renderW/renderH;
+        camera.updateProjectionMatrix();
+        renderer.setSize(renderW, renderH);
+    }
+
+	const animate = function () {
+		requestAnimationFrame( animate );
+
+        boxRx.rotation.y += 0.01;
+        boxLx.rotation.y += 0.01;
+        boxTop.rotation.y += 0.01;
+		boxBottom.rotation.y += 0.01;
+
+		renderer.render( scene, camera );
+	};
+
+    window.addEventListener('resize', onWindowResize);
+    init3d();
+	animate();
+</script></body>
+</html>
