@@ -1,7 +1,18 @@
 {{ define "main" }}
 <div class="fitVpW fitVpH position-relative">
-    <div id="fg">
-        coming soon.
+    <div id="fg" class="fitVpW">
+        <div class="row">
+            <div class="col centerText mx-auto">
+                {{ $theSite := .Site }}
+                {{ range $boxData := .Site.Data.infoBoxes }}
+                    <div id={{ $boxData.divName }} class={{ $boxData.class }}>
+                        {{ $boxPage := $theSite.GetPage $boxData.md }}
+                        {{ $boxPage.Content }}
+                    </div>
+                {{ end }}
+                {{- partial "mainMenu.html" . -}}
+            </div>
+        </div>
     </div>
     <div id="bg" class="position-absolute top-50 start-50 translate-middle behindAll fitVpW fitVpH"></div>
 </div>

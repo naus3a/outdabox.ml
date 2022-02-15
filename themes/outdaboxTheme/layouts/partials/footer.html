@@ -1,1 +1,4 @@
-<p class="footer fixed-bottom" text-center>Copyright (c) {{ now.Format "2006" }} Enrico Viola</p>
+<div class="footer fixed-bottom">
+    {{- partial "contactIcons.html" . -}}
+    <p text-center>Copyright (c) {{ now.Format "2006" }} Enrico Viola</p>
+</div>

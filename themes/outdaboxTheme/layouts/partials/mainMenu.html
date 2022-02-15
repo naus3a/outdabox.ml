@@ -1,0 +1,25 @@
+{{ $boxes := .Site.Data.infoBoxes }}
+<div class="row">
+    <div class="col-md-auto d-none {{ $boxes.intro.menuClass }}">
+        <a href="#" id="{{ $boxes.intro.linkId }}">intro</a>
+    </div>
+    <div class="col-md-auto d-none {{ $boxes.intro.menuClass }}">
+        |
+    </div>
+    <div class="col-md-auto d-block {{ $boxes.what.menuClass }}">
+        <a href="#" id="{{ $boxes.what.linkId }}">what I do</a>
+    </div>
+    <div class="col-md-auto d-block {{ $boxes.what.menuClass }}">
+        |
+    </div>
+    <div class="col-md-auto d-block {{ $boxes.contacts.menuClass }}">
+        <a href="#" id="{{ $boxes.contacts.linkId }}">how to get in touch</a>
+    </div>
+    <div class="col-md-auto d-block {{ $boxes.contacts.menuClass }}">
+        |
+    </div>
+    <div class="col-md-auto d-block {{ $boxes.past.menuClass }}">
+        <a href="#" id="{{ $boxes.past.linkId }}">stuff I did</a>
+    </div>
+</div>
+</div>

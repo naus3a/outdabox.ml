@@ -3,6 +3,11 @@ body {
     color: #ffffff;
 }
 
+a:link, a:visited, a:hover, a:active{
+    color: #bd93f9;
+    text-decoration: none;
+}
+
 .fitVpW{
     width: 100vw!important;
 }
@@ -19,7 +24,23 @@ body {
     background-color: #ff0000;
 }
 
+.centerText{
+    max-width: 450px !important;
+}
+
 #fg{
     position: absolute;
-    top: 20px !important;
+    animation-name: enterFromTop;
+    animation-duration: 1s;
+    top: 20vh;
+}
+
+@keyframes enterFromTop{
+    from { top: -100px; }
+    to { top: 20vh; }
+}
+
+@keyframes exitThruBottom{
+    from { top: 20vh; }
+    to { top: 100vh; }
 }

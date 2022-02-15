@@ -1,0 +1,33 @@
+{
+    "intro" : {
+        "divName" : "intro",
+        "menuClass": "menuIntro",
+        "linkId": "btnIntro",
+        "md": "intro.md",
+        "class": "d-block"
+    },
+
+    "what" : {
+        "divName" : "what",
+        "menuClass": "menuWhat",
+        "linkId": "btnWhat",
+        "md": "what.md",
+        "class": "d-none"
+    },
+
+    "contacts" : {
+        "divName" : "contacts",
+        "menuClass": "menuContacts",
+        "linkId": "btnContacts",
+        "md": "contacts.md",
+        "class": "d-none"
+    },
+
+    "past" : {
+        "divName" : "past",
+        "menuClass": "menuPast",
+        "linkId": "btnPast",
+        "md": "past.md",
+        "class": "d-none"
+    }
+}
