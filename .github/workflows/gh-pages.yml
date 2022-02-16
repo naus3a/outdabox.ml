@@ -8,8 +8,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
+      - run: echo "deplying hugo"
       - uses: actions/checkout@v2
         with:
           submodules: true
